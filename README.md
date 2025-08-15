@@ -15,13 +15,13 @@ Este projeto permite criar um cluster Docker Swarm local utilizando Vagrant e Vi
 - [Como Utilizar](#como-utilizar)
 - [Comandos Úteis](#comandos-úteis)
 - [Licença](#licença)
+- [Conclusão](#conclusão)
 
 ## Visão Geral
 
-O ambiente é composto por três máquinas virtuais:
+O ambiente é composto por duas máquinas virtuais:
 - **master**: Nó principal do cluster Swarm.
 - **node01**: Worker do cluster.
-- **node02**: Worker do cluster.
 
 Todas as VMs utilizam Ubuntu 24.04 e são configuradas automaticamente para formar um cluster Docker Swarm.
 
@@ -66,7 +66,25 @@ Todas as VMs utilizam Ubuntu 24.04 e são configuradas automaticamente para form
    docker node ls
    ```
 
-## Comandos Úteis
+5. **Criando serviços no Swarm:**
+   ```bash
+   docker service create --name nginx --publish 8080:80 --replicas 2 nginx
+   ```
+   O serviço criado pode ser acessado em `http://10.10.10.100:8080`.
+   Os container foram criados utilizando a imagem oficial do Nginx, que é um servidor web leve e de alto desempenho.
+
+6. **Verificando serviços em execução:**
+
+   6.1 **Listando serviços:**
+      ```bash
+      docker service ls
+      ```
+   6.2 **Listando containers de um serviço:**
+      ```bash
+      docker service ps nginx
+      ```
+
+## Comandos Úteis Vagrant
 
 - **Parar as VMs:**
   ```bash
@@ -84,3 +102,8 @@ Todas as VMs utilizam Ubuntu 24.04 e são configuradas automaticamente para form
 ## Licença
 
 Este projeto está licenciado sob a [Apache License 2.0](LICENSE).
+
+## Conclusão
+
+Este projeto fornece uma maneira fácil e rápida de configurar um cluster Docker Swarm local para fins de teste e desenvolvimento. Com o uso do Vagrant e do VirtualBox, é possível simular um ambiente de produção com múltiplos nós, facilitando o aprendizado e a experimentação com a orquestração de containers.
+Espero que gostem e sintam-se à vontade para contribuir!

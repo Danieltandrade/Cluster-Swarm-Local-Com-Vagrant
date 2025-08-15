@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo apt-get update
+sudo apt update
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
-sudo apt-get install -y docker-compose-plugin
+sudo apt install -y docker-compose-plugin
 sudo usermod -aG docker vagrant

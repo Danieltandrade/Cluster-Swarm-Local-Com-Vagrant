@@ -216,3 +216,6 @@ __marimo__/
 
 ### Vagrant Patch ###
 *.box
+
+### Config Files ###
+config.txt
